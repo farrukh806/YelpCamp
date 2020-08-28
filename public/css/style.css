@@ -1,0 +1,131 @@
+body {
+    height: 100vh;
+    padding: 0;
+    margin-top: 59px;
+    background: #ECE9E6;
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);   Chrome 10-25, Safari 5.1-6 */
+    /*  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /*W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
+    background-color: #eec0c6;
+    background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+
+
+}
+
+.card {
+    margin-right: 18px;
+    margin-bottom: 10px;
+}
+
+.container {
+    margin-top: 6px;
+
+}
+
+.card-img-top {
+    height: 160px;
+    width: 100%;
+}
+
+figure img {
+    width: 600px;
+    float: right;
+    padding: 6px 30px;
+}
+
+
+#footer {
+    float: right;
+    margin-right: 0px;
+    font-family: cursive;
+    font-weight: lighter;
+    font-size: 12px;
+    color: black;
+    vertical-align: bottom;
+    position: relative;
+    top: 12em;
+    display: table-cell;
+}
+
+.heading {
+    margin-top: 124px;
+}
+
+form {
+    margin-top: 49px;
+
+}
+
+input {
+    width: 800px;
+    height: 40px;
+    margin: 13px 15px;
+}
+
+textarea {
+    width: 800px;
+    height: 246px;
+}
+
+.figure {
+    margin-top: 2em;
+}
+
+figure {
+    border: 0.5px solid rgba(119, 115, 115, 0.527);
+}
+
+#price {
+    float: right;
+}
+
+.figure-caption {
+    padding: 0 6px;
+}
+
+.comment-btn {
+    float: right;
+}
+
+.img-thumbnail {
+    margin-top: 1px;
+    margin-bottom: 4px;
+    width: 700px;
+    height: 400px;
+
+}
+
+.navbar-toggler-icon {
+    color: black;
+}
+
+.nav-item a {
+    text-decoration: none;
+}
+
+.btn-outline-primary {
+    margin-top: 2em;
+}
+
+p,
+h3 {
+    color: black;
+}
+
+#deleteButton {
+    display: inline;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+#edit-btn {
+    height: 40px;
+    margin-top: 48px;
+    margin-right: 2px;
+    /* display: flex; */
+    align-items: center;
+}

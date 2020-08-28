@@ -1,0 +1,11 @@
+<%- include('../partials/header');  -%>
+
+<form class="form-group text-center" action="/campgrounds/<%= campground._id %>/comments" method="POST"
+    class="text-center">
+    <h1>Add new comment to <em><%= campground.name %></em></h1>
+    <input class="form-group" type="text" name="campground[text]" placeholder="Comment" autocomplete="off" required>
+    <br>
+    <button type="Submit" class="btn btn-lg btn-primary mt-2">Submit</button>
+</form>
+
+<%- include('../partials/footer');  -%>

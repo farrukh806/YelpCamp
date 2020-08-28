@@ -1,0 +1,45 @@
+<%- include('../partials/header');  -%>
+<% if(currentUser){ %>
+<div class="container ml-12">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-xsm-12">
+      <figure class="figure img-fluid">
+        <img class="img-responsive img-thumbnail" src="<%= id.url %> " alt="">
+        <div class="figure-caption mx-auto d-block">
+          <h3><%= id.name %> </h3>
+          <p><%- id.description -%></p>
+          <p id="price">$90/Night</p>
+          <p><em>Submitted by <strong><%= id.author%> </strong></em></p>
+          <div class="right">
+            <% if(currentUser.username === id.author){ %>
+            <a class="form-group btn btn-md btn-warning" id="edit-btn" href="/campgrounds/<%= id._id %>/edit">Edit</a>
+            <form id="deleteButton" class="form-group" action="/campgrounds/<%= id._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-md btn-danger">Delete</button>
+            </form>
+            <% } %>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <% id.comments.forEach(function(comment){ %>
+  <div class="row column">
+    <div class="col">
+      <p><strong><%= comment.author %></strong> - <%= comment.text %></p>
+      <% if(currentUser.username === comment.author){ %>
+      <a href="/campgrounds/<%= id._id %>/comments/<%= comment._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+      <form id="deleteButton" class="from-group mb-2"
+        action="/campgrounds/<%= id._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-sm btn-danger">Delete</button>
+      </form>
+      <% } %>
+      <% }); %>
+
+      <a class="btn btn-success comment-btn" href="/campgrounds/<%= id._id %>/comments/new">Add Comment</a>
+    </div>
+  </div>
+</div>
+<% } %>
+
+
+<%- include('../partials/footer');  -%>
