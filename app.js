@@ -48,5 +48,5 @@ passport.deserializeUser(User.deserializeUser());
 
 app.listen(port, function () {
     console.log(port);
-    console.log('Server started at port 3000');
+    console.log('Server started at port '+port);
 });
