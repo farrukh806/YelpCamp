@@ -14,8 +14,7 @@ var commentRoutes = require('./routes/comment');
 var campgroundRoutes = require('./routes/campgrounds');
 var indexRoutes = require('./routes/index');
 var flash = require('connect-flash');
-//var middleWare = require('./middleware');
-//var DATABASEURL = process.env.DATABASEURL;
+
 
 
 app.use(require('express-session')({
@@ -41,11 +40,8 @@ app.use(commentRoutes);
 app.use(indexRoutes);
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
-mongoose.connect("mongodb://farrukh:MYPASSWORD@cluster0-shard-00-00-rdk5m.mongodb.net:27017,cluster0-shard-00-01-rdk5m.mongodb.net:27017,cluster0-shard-00-02-rdk5m.mongodb.net:27017/yelp_camp?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
-//mongoose.connect(DATABASEURL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://username:password@DATABASEURL);
 
-//app.use(middleWare);
-//console.log(DATABASEURL);
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
