@@ -2,7 +2,6 @@ var methodOverride = require('method-override');
 var express = require('express');
 var sanitizer = require('express-sanitizer');
 var Campground = require('../models/campground');
-//var middleWare = require('../middleware');
 var router = express.Router({ mergeParams: true });
 router.use(sanitizer());
 router.use(methodOverride('_method'));
