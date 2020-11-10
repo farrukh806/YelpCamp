@@ -14,7 +14,7 @@ var commentRoutes = require('./routes/comment');
 var campgroundRoutes = require('./routes/campgrounds');
 var indexRoutes = require('./routes/index');
 var flash = require('connect-flash');
-
+var dburl = process.env.DBURL;
 
 
 app.use(require('express-session')({
@@ -40,13 +40,12 @@ app.use(commentRoutes);
 app.use(indexRoutes);
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
-mongoose.connect("mongodb://username:password@DATABASEURL);
+mongoose.connect(dburl,{useNewUrlParser: true, useUnifiedTopology: true});
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.listen(port, function () {
-    console.log(port);
     console.log('Server started at port '+port);
 });
