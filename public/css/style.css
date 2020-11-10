@@ -129,3 +129,12 @@ h3 {
     /* display: flex; */
     align-items: center;
 }
+
+@media(max-width:360px){
+    input{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+}
