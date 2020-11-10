@@ -136,5 +136,10 @@ h3 {
         flex-direction:column;
         justify-content:center;
         align-items:center;
+        width:90%;
+    }
+    
+    textarea{
+        width:90%;
     }
 }
