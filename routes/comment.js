@@ -97,6 +97,20 @@ router.delete('/campgrounds/:campground_id/comments/:comment_id', checkCommentOw
         }
         else {
             req.flash("success", "Comment deleted!");
+            Campground.findById(req.params.campground_id, function(err, campFound){
+                if(err){
+                    req.flash('error', 'Something went wrong');
+                    res.redirect(`back`);
+                    }
+                else{
+                    for(var i = 0; i < campFound.comments.length; i++){
+                        if(campFound.comments[i].equals(deletedComment._id)){
+                            campFound.comments.splice(i, 1);
+                            campFound.save();
+                        }
+                    }
+                }
+            });
             res.redirect('/campgrounds/' + req.params.campground_id);
         }
     });
