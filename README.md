@@ -9,4 +9,4 @@ Other users also can see all those posts from all other users and can comment on
 and can edit their comments at any time.
 A live version of the above project is hosted on the heroku you can access that using the given link below
 :-----
-<a href="yelpwebcamp.herokuapp.com">Live Preview</a>
+<a href="https://yelpwebcamp.herokuapp.com">Live Preview</a>
