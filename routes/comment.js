@@ -152,12 +152,14 @@ function checkCommentOwenership(req, res, next) {
         Comment.findById(req.params.comment_id, function (err, comment) {
             if (err) {
                 console.log(err);
+                if(comment === null){
+                    req.flash('error', 'Comment not found');
+                    res.redirect('/campgrounds/'+ req.params.campground_id);
+                } 
                 req.flash("error", "Comment not found!");
                 res.redirect('back');
             }
-            else {
-                console.log(comment);
-                if (comment.author === req.user.username)
+            else if(comment.author === req.user.username)
                     next();
                 else
                     res.redirect('back');
