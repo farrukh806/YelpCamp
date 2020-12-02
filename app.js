@@ -45,9 +45,7 @@ mongoose.connect(dburl,{useNewUrlParser: true, useUnifiedTopology: true});
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-app.get('*', function(req, res){
-res.status(404).send('Not found');
-});
+
 app.listen(port, function () {
     console.log('Server started at port '+port);
 });
