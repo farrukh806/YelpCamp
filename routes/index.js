@@ -54,9 +54,7 @@ router.get('/logout', isLoggedin, function (req, res) {
     res.redirect('/');
 });
 
-router.get('*', function(req, res){
-    res.status(404).send('Not found');
-});
+
 //================================
 //ALL MIDDLEWARE USED IN THIS FILE
 //================================
