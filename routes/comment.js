@@ -152,14 +152,18 @@ function checkCommentOwenership(req, res, next) {
         Comment.findById(req.params.comment_id, function (err, comment) {
             if (err) {
                 console.log(err);
+                req.flash("error", "Comment not found!");
+                res.redirect('back');
+            }
+            
+            else {
+                console.log(comment);
                 if(comment === null){
                     req.flash('error', 'Comment not found');
                     res.redirect('/campgrounds/'+ req.params.campground_id);
                 } 
-                req.flash("error", "Comment not found!");
-                res.redirect('back');
-            }
-            else if(comment.author === req.user.username)
+                    
+                else if (comment.author === req.user.username)
                     next();
                 else
                     res.redirect('back');
@@ -170,6 +174,7 @@ function checkCommentOwenership(req, res, next) {
         res.redirect('back');
     }
 }
+
 
 //FUNCTION TO CHECK USER IS LOGGED IN OR NOT
 
