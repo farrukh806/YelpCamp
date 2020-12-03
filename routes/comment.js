@@ -71,7 +71,7 @@ router.get('/campgrounds/:campground_id/comments/:comment_id/edit', checkComment
 
 //UPDATE COMMENT ROUTE
 
-router.put('/campgrounds/comments/:comment_id', checkCommentOwenership, function (req, res) {
+router.put('/campgrounds/comments/:comment_id', checkCommentOwnership, function (req, res) {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function (err, updatedComment) {
         if (err) {
             console.log(err);
@@ -88,7 +88,7 @@ router.put('/campgrounds/comments/:comment_id', checkCommentOwenership, function
 
 //DELETE COMMENT ROUTE
 
-router.delete('/campgrounds/:campground_id/comments/:comment_id', checkCommentOwenership, function (req, res) {
+router.delete('/campgrounds/:campground_id/comments/:comment_id', checkCommentOwnership, function (req, res) {
     Comment.findByIdAndDelete(req.params.comment_id, function (err, deletedComment) {
         if (err) {
             console.log(err);
@@ -122,7 +122,7 @@ router.delete('/campgrounds/:campground_id/comments/:comment_id', checkCommentOw
 
 //FUNCTION FOR CHECK USER AUTHENTICATION
 
-function checkUserOwenership(req, res, next) {
+function checkUserOwnership(req, res, next) {
     if (req.isAuthenticated()) {
         Campground.findById(req.params.id, function (err, campground) {
             if (err) {
@@ -147,7 +147,7 @@ function checkUserOwenership(req, res, next) {
 
 //FUNCTION TO CHECK COMMENT AUTHOR
 
-function checkCommentOwenership(req, res, next) {
+function checkCommentOwnership(req, res, next) {
     if (req.isAuthenticated()) {
         Comment.findById(req.params.comment_id, function (err, comment) {
             if (err) {
