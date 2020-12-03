@@ -75,7 +75,7 @@ router.get('/campgrounds/:id', isLoggedin, function (req, res) {
 
 //EDIT CAMPGROUND
 
-router.get('/campgrounds/:id/edit', checkUserOwenership, function (req, res) {
+router.get('/campgrounds/:id/edit', checkUserOwnership, function (req, res) {
     Campground.findById(req.params.id, function (err, campground) {
         if (err) {
             console.log(err);
@@ -91,7 +91,7 @@ router.get('/campgrounds/:id/edit', checkUserOwenership, function (req, res) {
 
 //UPDATE CAMPGROUND
 
-router.put('/campgrounds/:id', checkUserOwenership, function (req, res) {
+router.put('/campgrounds/:id', checkUserOwnership, function (req, res) {
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function (err, updatedCampground) {
         if (err) {
             req.flash("error", "Campground not found!");
@@ -102,7 +102,7 @@ router.put('/campgrounds/:id', checkUserOwenership, function (req, res) {
 
 //DELETE CAMPGROUND
 
-router.delete('/campgrounds/:id', checkUserOwenership, function (req, res) {
+router.delete('/campgrounds/:id', checkUserOwnership, function (req, res) {
     Campground.findByIdAndDelete(req.params.id, function (err, deletedCampground) {
         if (err) {
             console.log(err);
@@ -122,7 +122,7 @@ router.delete('/campgrounds/:id', checkUserOwenership, function (req, res) {
 
 //USER AUTHENTICATION
 
-function checkUserOwenership(req, res, next) {
+function checkUserOwnership(req, res, next) {
     if (req.isAuthenticated()) {
         Campground.findById(req.params.id, function (err, campground) {
             if (err) {
@@ -149,7 +149,7 @@ function checkUserOwenership(req, res, next) {
 
 //COMMENT AUTHENTICATION
 
-function checkCommentOwenership(req, res, next) {
+function checkCommentOwnership(req, res, next) {
     if (req.isAuthenticated()) {
         Comment.findById(req.params.comment_id, function (err, comment) {
             if (err) {
