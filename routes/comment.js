@@ -57,7 +57,7 @@ router.post('/campgrounds/:id/comments', isLoggedin, function (req, res) {
 
 //EDIT COMMENT ROUTE
 
-router.get('/campgrounds/:campground_id/comments/:comment_id/edit', checkCommentOwenership, function (req, res) {
+router.get('/campgrounds/:campground_id/comments/:comment_id/edit', checkCommentOwnership, function (req, res) {
     Comment.findById(req.params.comment_id, function (err, foundComment) {
         if (err) {
             req.flash("error", "Comment not found!");
