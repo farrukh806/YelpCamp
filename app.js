@@ -18,7 +18,7 @@ var dburl = process.env.DBURL;
 
 
 app.use(require('express-session')({
-    secret: "i dont know",
+    secret: "yoursessionsecretstring",
     resave: false,
     saveUninitialized: false
 }));
